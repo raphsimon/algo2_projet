@@ -12,8 +12,8 @@ class WeightedTree:
     def getRootVal(self):
         return self.key
 
-    def setRootVal(self, obj):
-        self.key = obj
+    def setRootVal(self, key):
+        self.key = key
 
     def getFather(self):
         return self.father
@@ -46,4 +46,3 @@ class WeightedTree:
     def addChildren(self, newChild):
         # ajout d'enfant dans la liste enfants
         self.childrenList.append(newChild)
-
