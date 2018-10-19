@@ -1,3 +1,5 @@
+import random
+
 class WeightedTree:
     """
     Ceci est l'implémentation de l'ADT pour résoudre le problème
@@ -7,7 +9,12 @@ class WeightedTree:
         self.key = rootVal
         self.father = father # Pour remonter dans l'arbre
         self.weight = weight # Poids associé au noeud
-        self.childrenList = [] # Pas d'enfants par défaut
+        chance = random.randint(0,1)
+        if chance != 0:
+            self.childrenList = [WeightedTree(ROOTVAL, random.randint(-5,5), self) for _ in range(random.randint(1,4))]
+        else:
+            self.childrenList = []
+        # Comment trouver le nombre maximal
 
     def getRootVal(self):
         return self.key
