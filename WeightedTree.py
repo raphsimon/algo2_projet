@@ -4,16 +4,21 @@ class WeightedTree:
     du sous-arbre de poids maximum
     """
     def __init__(self, rootVal, weight, father=None):
-        self.key = rootVal
-        self.father = father # Pour remonter dans l'arbre
-        self.weight = weight # Poids associé au noeud
-        self.childrenList = [] # Pas d'enfants par défaut
+        self.key = rootVal      # Id du sommet (lettre)
+        self.father = father    # Pour remonter dans l'arbre
+        self.weight = weight    # Poids associé au noeud
+        self.childrenList = []  # Pas d'enfants par défaut
+        self.nbChildren = 0     # Nombre d'enfants
+        self.potentiel = weight # Somme du sommet avec les sommes des enfants
 
     def getRootVal(self):
         return self.key
 
     def setRootVal(self, obj):
         self.key = obj
+
+    def setPotentiel(self, value):
+        self.potentiel += value
 
     def getFather(self):
         return self.father
@@ -27,14 +32,20 @@ class WeightedTree:
     def setWeight(self, newWeight):
         self.weight = newWeight
 
-    def getChildren(self, childrenNb):
+    def getChildren(self, childNb):
+        # Renvoie un enfant en particulier
         try:
-            return self.childrenList[childrenNb]
+            return self.childrenList[childNb]
         except IndexError:
             print("Pas un argument valide!")
 
     def getAllChildren(self):
+        # Renvoie la liste des enfants
         return self.childrenList
+
+    def getNbChildren(self):
+        # Renvoie le nombre d'enfants
+        return self.nbChildren
 
     def setChildren(self, newChild, newChildIndex):
         # On modifie un enfant déjà existant
@@ -44,6 +55,10 @@ class WeightedTree:
             print("Pas un argument valide!")
 
     def addChildren(self, newChild):
-        # ajout d'enfant dans la liste enfants
+        # ajout d'un enfant dans la liste des enfants
         self.childrenList.append(newChild)
+        self.nbChildren += 1
 
+    def deleteChildren(self, ChildIndex): # A continuer
+        self.nbChildren -= 1
+        pass
