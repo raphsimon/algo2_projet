@@ -6,4 +6,10 @@ un graphe non connexe et les algorithmes pour le parcours d'AB
 ne sont pas adaptés à notre structure de données
 """
 
-def depthFirst(graph):
+def depthFirst(sommet):
+    # traiter le sommet
+    print(sommet.getRootVal())
+    # la boucle est la condition d'arret
+    for children_i in range(len(sommet.getAllChildren())):
+        nextNode = sommet.getChildren(children_i)
+        depthFirst(nextNode)

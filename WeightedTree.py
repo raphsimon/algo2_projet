@@ -1,25 +1,19 @@
-import random
-
 class WeightedTree:
     """
     Ceci est l'implémentation de l'ADT pour résoudre le problème
     du sous-arbre de poids maximum
     """
-    def __init__(self, rootVal, weight, MAX, ID=1, father=None):
+    def __init__(self, rootVal, weight, father=None):
         self.key = rootVal
         self.father = father # Pour remonter dans l'arbre
         self.weight = weight # Poids associé au noeud
-        if MAX < 15:
-            if random.randint(0,1) != 0:
-                self.childrenList = [WeightedTree(ROOTVAL, random.randint(-5,5), self) for _ in range(random.randint(1,4))]
-            else:
-                self.childrenList = []
+        self.childrenList = [] # Pas d'enfants par défaut
 
     def getRootVal(self):
         return self.key
 
-    def setRootVal(self, key):
-        self.key = key
+    def setRootVal(self, obj):
+        self.key = obj
 
     def getFather(self):
         return self.father
@@ -35,7 +29,7 @@ class WeightedTree:
 
     def getChildren(self, childrenNb):
         try:
-            return childrenList[childrenNb]
+            return self.childrenList[childrenNb]
         except IndexError:
             print("Pas un argument valide!")
 
@@ -52,3 +46,4 @@ class WeightedTree:
     def addChildren(self, newChild):
         # ajout d'enfant dans la liste enfants
         self.childrenList.append(newChild)
+
