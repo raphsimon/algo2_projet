@@ -48,7 +48,7 @@ def addChildrenToTree(summit, childrenToAdd, node_name):
 def distribution(nbSummits, childrenToAdd):
     liste = list()
     rest = 0
-    for i in range nbSummits:
+    for i in range(nbSummits):
         res = randint(0, childrenToAdd-rest)
         liste.append(res)
         rest += res
