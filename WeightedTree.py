@@ -65,3 +65,6 @@ class WeightedTree:
     def deleteChild(self, child): # A continuer
         self.childrenList[self.childrenList.index(child)] = None
         self.nbChildren -= 1
+
+    def deleteAllChildren(self):
+        self.childrenList = []

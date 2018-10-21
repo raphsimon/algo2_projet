@@ -10,18 +10,14 @@ ne sont pas adaptés à notre structure de données
 def depthFirst(summit):
 
     if summit != None:
-        print(summit.getRootVal())
+        print(summit.getRootVal(), " ", summit.getWeight())
 
         for child_i in range(summit.getNbChildren()):
             nextNode = summit.getChildren(child_i)
             depthFirst(nextNode)
 
 
-
-
 def max_subtree(summit):
-    # traiter le sommet
-    # print(summit.getRootVal())
 
     # la boucle est la condition d'arrêt
     for child_i in range(summit.getNbChildren()):
@@ -47,3 +43,8 @@ def max_subtree(summit):
             else:
                 # Suppression du noeud interne
                 summit.getFather().deleteChild(summit)
+
+    else:
+        if summit.getPotential() < 0:
+            print("Il n'existe pas de sous-arbre de poids maximum !")
+            summit.deleteAllChildren()
