@@ -1,6 +1,7 @@
 from WeightedTree import *
 from random import randint
 
+
 # returns a tree
 def treeGeneration():
     """
@@ -30,13 +31,21 @@ def addChildrenToTree(summit, childrenToAdd):
             for i in range(childrenToAddNow):
                 summit.addChildren(WeightedTree("s", randint(-5, 5), summit))
             childrenToAdd -= childrenToAddNow # pour le prochain appel
-            # on parcourt les fils qu'on vient d'ajouter pour en ajouter plus
-            childrenToAdd = childrenToAdd // childrenToAddNow
-            """ Cette ligne est
-            écrite parce que nous aurions à la ligne suivante childrenToAddNow
-            fois l'appel récrursif de addChildrenToTree avec chaque fois childrenToAdd
-            qui est donné en paramètre ce qui nous donnerait trop d'enfants au final
-            """
-            for children in range(childrenToAddNow):
-                addChildrenToTree(summit.getChildren(children), childrenToAdd)
+
+            liste = distribution(childrenToAddNow, childrenToAdd)
+            i = 0
+            for child_i in range(childrenToAddNow):
+                addChildrenToTree(summit.getChildren(child_i), liste[child_i])
     return summit
+
+
+def distribution(nbSummits, childrenToAdd):
+    liste = list()
+    rest = 0
+    for i in range(nbSummits):
+        res = randint(0, childrenToAdd-rest)
+        liste.append(res)
+        rest += res
+    if sum(liste) != childrenToAdd:
+        liste[nbSummits-1] += (childrenToAdd-sum(liste))
+    return liste
