@@ -20,25 +20,25 @@ def treeGeneration():
 
 
 def addChildrenToTree(summit, childrenToAdd, node_name):
-    chanceToHaveChildren = randint(1, 4) # le sommet à 1 chance sur 8 d'avoir des fils
-    if chanceToHaveChildren != 1: # est-ce que nous allons ajouter des fils?
-        if childrenToAdd != 0:
-            if childrenToAdd == 1:
-                childrenToAddNow = 1
-            elif childrenToAdd <= 4: # 4 est le max de fils qu'on peut ajouter
-                childrenToAddNow = randint(1, childrenToAdd)
-            else:
-                childrenToAddNow = randint(1, 4)
-            for i in range(childrenToAddNow):
-                summit.addChildren(WeightedTree(chr(node_name), randint(-5, 5), summit))
-                node_name += 1
-            childrenToAdd -= childrenToAddNow
-            # childrenToAdd = reste pour le prochain appel
+    # chanceToHaveChildren = randint(1, 4) # le sommet à 1 chance sur 4 d'avoir des fils
+    # if chanceToHaveChildren != 1: # est-ce que nous allons ajouter des fils?
+    if childrenToAdd != 0:
+        if childrenToAdd == 1:
+            childrenToAddNow = 1
+        elif childrenToAdd <= 4: # 4 est le max de fils qu'on peut ajouter
+            childrenToAddNow = randint(1, childrenToAdd)
+        else:
+            childrenToAddNow = randint(1, 4)
+        for i in range(childrenToAddNow):
+            summit.addChildren(WeightedTree(chr(node_name), randint(-5, 5), summit))
+            node_name += 1
+        childrenToAdd -= childrenToAddNow
+        # childrenToAdd = reste pour le prochain appel
 
-            liste = distribution(childrenToAddNow, childrenToAdd)
-            i = 0
-            for child_i in range(childrenToAddNow):
-                addChildrenToTree(summit.getChildren(child_i), liste[child_i], node_name)
+        liste = distribution(childrenToAddNow, childrenToAdd)
+        i = 0
+        for child_i in range(childrenToAddNow):
+            addChildrenToTree(summit.getChildren(child_i), liste[child_i], node_name)
     return summit
 
 
