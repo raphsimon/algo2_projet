@@ -10,6 +10,13 @@ def main():
     print("Weight of root: ", myTree.getWeight())
     print("Number of children root has: ", myTree.getNbChildren())
     print("On commence le parcours de l'arbre")
+    print()
+    print("------------Arbre de Base------------")
+    depthFirst(myTree)
+
+    max_subtree(myTree)
+    print()
+    print("------------Arbre de Après maximisation------------")
     depthFirst(myTree)
 
 

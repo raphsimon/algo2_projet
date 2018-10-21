@@ -12,7 +12,7 @@ def treeGeneration():
     - Il y a une chance de 25% que le sommet reste de degré 0
     """
     summit = WeightedTree("r", randint(-5, 5), None)
-    nbOfSummits = randint(0, 14) # 14 comme le sommet r est déjà créé
+    nbOfSummits = randint(7, 14) # 14 comme le sommet r est déjà créé
     node_name = 97
     print("This tree will have ", nbOfSummits, " children(s)")
     addChildrenToTree(summit, nbOfSummits, node_name)
@@ -37,8 +37,9 @@ def addChildrenToTree(summit, childrenToAdd, node_name):
             liste = distribution(childrenToAddNow, childrenToAdd)
             i = 0
             for child_i in range(childrenToAddNow):
-                addChildrenToTree(summit.getChildren(child_i), liste[child_i])
+                addChildrenToTree(summit.getChildren(child_i), liste[child_i], node_name)
     return summit
+
 
 
 def distribution(nbSummits, childrenToAdd):
@@ -51,3 +52,15 @@ def distribution(nbSummits, childrenToAdd):
     if sum(liste) != childrenToAdd:
         liste[nbSummits-1] += (childrenToAdd-sum(liste))
     return liste
+
+
+
+# def distribution(children, children_add_now):
+#     partition = children // children_add_now
+#     rest = children - (partition * children_add_now)
+#     partition_list = []
+#     for i in range(children_add_now):
+#         partition_list.append(partition)
+#     partition_list[0, randint(0, len(partition_list) - 1)] += rest
+#     return partition_list
+#

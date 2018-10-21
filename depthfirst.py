@@ -8,13 +8,25 @@ ne sont pas adaptés à notre structure de données
 """
 
 def depthFirst(summit):
+
+    if summit != None:
+        print(summit.getRootVal())
+
+        for child_i in range(summit.getNbChildren()):
+            nextNode = summit.getChildren(child_i)
+            depthFirst(nextNode)
+
+
+
+
+def max_subtree(summit):
     # traiter le sommet
     # print(summit.getRootVal())
 
     # la boucle est la condition d'arrêt
     for child_i in range(summit.getNbChildren()):
         nextNode = summit.getChildren(child_i)
-        depthFirst(nextNode)
+        max_subtree(nextNode)
 
     if summit.getRootVal() != "r":
         if summit.getNbChildren() == 0:     # Si le sommet rencontré est une feuille
