@@ -1,7 +1,8 @@
-from WeightedTree import *
+import networkx as nx
+import matplotlib.pyplot as plt
 from random import randint
 
-# returns a tree
+
 def treeGeneration():
     """
     Cette fonction génère un arbre parmi les règles suivantes:
@@ -10,33 +11,34 @@ def treeGeneration():
     - chaque sommet aura un poids n: -5 <= n <= 5
     - Il y a une chance de 25% que le sommet reste de degré 0
     """
-    summit = WeightedTree("r", randint(-5, 5), None)
-    nbOfSummits = randint(0, 14) # 14 comme le sommet r est déjà créé
-    print("This tree will have ", nbOfSummits, " children(s)")
-    addChildrenToTree(summit, nbOfSummits)
+    summit = nx.Graph(name = "r", weight = randint(-5, 5))
+    nbOfSummits = randint(0, 14) # 14 car on retire le sommet qui existe déjà
+    print("Number of summits ", nbOfSummits)
+    lowercase_a = 97
+    addChildrenToTree(summit, nbOfSummits, lowercase_a)
     return summit
 
-
-def addChildrenToTree(summit, childrenToAdd):
-    chanceToHaveChildren = randint(1, 4) # le sommet à 1 chance sur 8 d'avoir des fils
-    if chanceToHaveChildren != 1: # est-ce que nous allons ajouter des fils?
-        if childrenToAdd != 0:
+def addChildrenToTree(summit, childrenToAdd, node_name):
+    print("Entering rec function")
+    if childrenToAdd != 0: # cond d'arrêt récursivité
+        chanceToHaveChildren = randint(1, 4) # le sommet à 1 chance sur 4 d'avoir des fils
+        if chanceToHaveChildren != 1: # allons-nous ajouter des fils?
             if childrenToAdd == 1:
-                childrenToAddNow = 1
-            elif childrenToAdd <= 4: # 4 est le max de fils qu'on peut ajouter
+                childrenToAddNow = 1 # init compteur de bloucle
+            elif childrenToAdd <= 4:
                 childrenToAddNow = randint(1, childrenToAdd)
-            else:
+            else: # Si on a encore plus que 4 fils à ajouter
                 childrenToAddNow = randint(1, 4)
-            for i in range(childrenToAddNow):
-                summit.addChildren(WeightedTree("s", randint(-5, 5), summit))
-            childrenToAdd -= childrenToAddNow # pour le prochain appel
-            # on parcourt les fils qu'on vient d'ajouter pour en ajouter plus
-            childrenToAdd = childrenToAdd // childrenToAddNow
-            """ Cette ligne est
-            écrite parce que nous aurions à la ligne suivante childrenToAddNow
-            fois l'appel récrursif de addChildrenToTree avec chaque fois childrenToAdd
-            qui est donné en paramètre ce qui nous donnerait trop d'enfants au final
-            """
             for children in range(childrenToAddNow):
-                addChildrenToTree(summit.getChildren(children), childrenToAdd) #BUG
+                temp = nx.Graph(name = chr(node_name), weight = randint(-5, 5))
+                node_name += 1 # pour nommer le prochain noeud autrement
+                summit.add_node(temp)
+                summit.add_edge(G, temp)
+            childrenToAdd -= childrenToAddNow
+            nb_children_next = childrenToAdd // childrenToAddNow
+            # Cette ligne est ajouté pour ne pas faire n appel récursif avec
+            # le childrenToAdd enfants car l'arbre aura trop de fils
+            summit_nodes = list(summit.nodes()) # les noeuds qu'on vient d'ajouter
+            for node in summit_nodes:
+                addChildrenToTree(node, nb_children_next, node_name)
     return summit
