@@ -13,12 +13,13 @@ def treeGeneration():
     """
     summit = WeightedTree("r", randint(-5, 5), None)
     nbOfSummits = randint(0, 14) # 14 comme le sommet r est déjà créé
+    node_name = 97
     print("This tree will have ", nbOfSummits, " children(s)")
-    addChildrenToTree(summit, nbOfSummits)
+    addChildrenToTree(summit, nbOfSummits, node_name)
     return summit
 
 
-def addChildrenToTree(summit, childrenToAdd):
+def addChildrenToTree(summit, childrenToAdd, node_name):
     chanceToHaveChildren = randint(1, 4) # le sommet à 1 chance sur 8 d'avoir des fils
     if chanceToHaveChildren != 1: # est-ce que nous allons ajouter des fils?
         if childrenToAdd != 0:
@@ -29,7 +30,8 @@ def addChildrenToTree(summit, childrenToAdd):
             else:
                 childrenToAddNow = randint(1, 4)
             for i in range(childrenToAddNow):
-                summit.addChildren(WeightedTree("s", randint(-5, 5), summit))
+                summit.addChildren(WeightedTree(node_name, randint(-5, 5), summit))
+                node_name += 1
             childrenToAdd -= childrenToAddNow # pour le prochain appel
 
             liste = distribution(childrenToAddNow, childrenToAdd)
