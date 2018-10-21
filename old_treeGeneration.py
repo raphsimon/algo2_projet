@@ -30,7 +30,7 @@ def addChildrenToTree(summit, childrenToAdd, node_name):
             else:
                 childrenToAddNow = randint(1, 4)
             for i in range(childrenToAddNow):
-                summit.addChildren(WeightedTree(node_name, randint(-5, 5), summit))
+                summit.addChildren(WeightedTree(chr(node_name), randint(-5, 5), summit))
                 node_name += 1
             childrenToAdd -= childrenToAddNow # pour le prochain appel
 
