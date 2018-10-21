@@ -24,10 +24,10 @@ def addChildrenToTree(summit, childrenToAdd, node_name):
         chanceToHaveChildren = randint(1, 4) # le sommet à 1 chance sur 4 d'avoir des fils
         if chanceToHaveChildren != 1: # allons-nous ajouter des fils?
             if childrenToAdd == 1:
-                childrenToAddNow = 1 # init compteur de bloucle
+                childrenToAddNow = 1 # init compteur de boucle
             elif childrenToAdd <= 4:
                 childrenToAddNow = randint(1, childrenToAdd)
-            else: # Si on a encore plus que 4 fils à ajouter
+            else: # Si on a plus que 4 noeuds à ajouter
                 childrenToAddNow = randint(1, 4)
             for children in range(childrenToAddNow):
                 temp = nx.Graph(name = chr(node_name), weight = randint(-5, 5))
@@ -35,10 +35,23 @@ def addChildrenToTree(summit, childrenToAdd, node_name):
                 summit.add_node(temp)
                 summit.add_edge(G, temp)
             childrenToAdd -= childrenToAddNow
-            nb_children_next = childrenToAdd // childrenToAddNow
-            # Cette ligne est ajouté pour ne pas faire n appel récursif avec
-            # le childrenToAdd enfants car l'arbre aura trop de fils
+            liste = distribution(childrenToAddNow, childrenToAdd)
+            #nb_children_next = childrenToAdd // childrenToAddNow
             summit_nodes = list(summit.nodes()) # les noeuds qu'on vient d'ajouter
+
+            i = 0
             for node in summit_nodes:
-                addChildrenToTree(node, nb_children_next, node_name)
+                addChildrenToTree(node, liste[i], node_name)
+                i += 1
     return summit
+
+def distribution(nbSummits, childrenToAdd):
+    liste = list()
+    rest = 0
+    for i in range nbSummits:
+        res = randint(0, childrenToAdd-rest)
+        liste.append(res)
+        rest += res
+    if sum(liste) != childrenToAdd:
+        liste[nbSummits-1] += (childrenToAdd-sum(liste))
+    return liste
