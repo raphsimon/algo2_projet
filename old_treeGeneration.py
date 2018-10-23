@@ -38,7 +38,8 @@ def addChildrenToTree(summit, childrenToAdd, node_name):
         liste = distribution(childrenToAddNow, childrenToAdd)
         i = 0
         for child_i in range(childrenToAddNow):
-            addChildrenToTree(summit.getChildren(child_i), liste[child_i], node_name)
+            addChildrenToTree(summit.getChildren(child_i), liste[child_i], node_name)# BUG: node_name changer car sommets de même nom
+            node_name +=  liste[child_i]
     return summit
 
 
