@@ -30,6 +30,7 @@ def addChildrenToTree(summit, childrenToAdd, node_name):
         else:
             childrenToAddNow = randint(1, 4)
         for i in range(childrenToAddNow):
+            print(childrenToAddNow)
             summit.addChildren(WeightedTree(chr(node_name), randint(-5, 5), summit))
             node_name += 1
         childrenToAdd -= childrenToAddNow
@@ -38,14 +39,14 @@ def addChildrenToTree(summit, childrenToAdd, node_name):
         liste = distribution(childrenToAddNow, childrenToAdd)
         i = 0
         for child_i in range(childrenToAddNow):
-            addChildrenToTree(summit.getChildren(child_i), liste[child_i], node_name)# BUG: node_name changer car sommets de même nom
+            addChildrenToTree(summit.getChildren(child_i), liste[child_i], node_name)
             node_name +=  liste[child_i]
     return summit
 
 
 
 def distribution(nbSummits, childrenToAdd):
-    print(childrenToAdd)
+    #print(childrenToAdd)
     liste = list()
     rest = 0
     for i in range(nbSummits):
@@ -54,7 +55,7 @@ def distribution(nbSummits, childrenToAdd):
         rest += res
 
     liste[-1] += (childrenToAdd-sum(liste))
-    print(liste)
+    #print(liste)
     return liste
 
 
