@@ -13,8 +13,8 @@ def main():
     print("On commence le parcours de l'arbre")
     print()
     print("------------Arbre de Base------------")
-    depthFirst(myTree)
-    #tree_representation(myTree)
+    #depthFirst(myTree)
+    tree_representation(myTree)
 
     max_subtree(myTree)
     print()

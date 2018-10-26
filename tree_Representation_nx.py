@@ -19,7 +19,7 @@ def hierarchy_pos(G, root, width=1., vert_gap = 0.2, vert_loc = 0, xcenter = 0.5
         pos = {root:(xcenter,vert_loc)}
     else:
         pos[root] = (xcenter, vert_loc)
-    neighbors = list(G.neighbors(root))
+    neighbors = list(G.nodes)
     if parent != None:   #this should be removed for directed graphs.
         neighbors.remove(parent)  #if directed, then parent not in neighbors.
     if len(neighbors)!=0:
@@ -41,15 +41,20 @@ def tree_creation(tree_base):
     for i in range(len(tree_base.getAllChildren())):
         if tree_base.getChildren(i) != None:
             G.add_edge(G,tree_creation(tree_base.getChildren(i)), weight = tree_base.getChildren(i).getWeight())
-
     return G
+
+
+
+
+
 
 
 def tree_show(G):
     """Affichage de l'arbre"""
     nx.draw(G, pos=nx.circular_layout(G), with_labels=True)
     labels = nx.get_edge_attributes(G,'weight')
-    nx.draw_networkx_edge_labels(G, pos=nx.circular_layout(G), edge_labels=labels)
+    #nx.draw_networkx_edge_labels(G, pos=nx.circular_layout(G), edge_labels=labels)
+    nx.draw_networkx_edge_labels(G, pos=hierarchy_pos(G, 0), edge_labels=labels)
     plt.show()
 
     # tree_show(G)
@@ -59,11 +64,27 @@ def tree_show(G):
 
 
 
+#
+# def tree_creation(tree_target, tree_base):
+#     """Création de l'Arbre sous Networkx"""
+#     for i in range(len(tree_base.getAllChildren())):
+#         if tree_base.getChildren(i) != None:
+#             tree_target.add_node(tree_base.getChildren(i), weight = tree_base.getChildren(i).getWeight())
+#             #tree_target.add_edge(tree_target, )
+#             #tree_creation(tree_base.getChildren(i)), weight = tree_base.getChildren(i).getWeight())
+#
+#
+#     return tree_target
+#
+#
+
+
 def tree_representation(tree):
     #nx.draw(G, pos=hierarchy_pos(G, 0), with_labels=True)
-
-
+    #G = nx.Graph(name = tree.getRootVal(), weight = tree.getWeight())
+    #G = tree_creation(nx.Graph(name = tree.getRootVal(), weight = tree.getWeight()), tree)
     G = tree_creation(tree)
+    #print(list(G.nodes))
     tree_show(G)
 
 
