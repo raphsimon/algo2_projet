@@ -17,9 +17,14 @@ class PrimalGraph:
         for keys in ha:
             summit_list = ha[keys]
             self.pg.add_nodes_from(summit_list)
+            """
+            networkx va ajouter chacun des noeuds qu'une seule fois.
+            Si le noeud est déjà contenu dans le graphe, on ne rajoute
+            plus
+            """
             for i in range(1, len(summit_list) - 1):
                 # on relie les sommets entre eux
-                self.pg.add_edge(summit_list[0], summit_list[i])
+                self.pg.add_edge(summit_list[i-1], summit_list[i])
 
         self.pg.add_nodes_from(ss) # on ajoute les sommets seuls
 
