@@ -13,7 +13,7 @@ class BipartiteGraph:
     def __init__(self, U, V, E):
         # U et V sont les deux ensembles de noeuds
         # E représente les connections entre les deux ens de noeuds
-        # les noeuds d'un ens ne sont pas reliés entre eux
+        # les noeuds d'un ens ne sont pas reliés entre eux => graphe biparti
         self.U = U
         self.V = V
         self.E = E
@@ -24,10 +24,10 @@ class BipartiteGraph:
 
     def get_top_nodes(self):
         return self.U
-    
+
     def get_bottom_nodes(self):
         return self.V
-    
+
     def get_edges(self):
         return self.E
 
