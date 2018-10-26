@@ -1,5 +1,5 @@
 """
-Ceci est l'implémentation d'un graphe primal construit paratant
+Ceci est l'implémentation d'un graphe primal construit partant
 d'un hypergraphe
 """
 
