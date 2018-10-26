@@ -33,3 +33,20 @@ class BipartiteGraph:
 
     def is_connected(self):
         return nx.is_connected(self.B)
+
+    def get_hyper_edges(self):
+        hyper_edges = {}
+        he = 0      # hyper edge
+        n = 1       # node in hyperedge
+        for i in range(len(self.E) - 1):
+            if self.E[i][he] not in hyper_edges:
+                hyper_edges[self.E[i][he]] = [self.E[i][n]]
+            else:
+                # on ajoute le sommet à l'hyper-arête
+                hyper_edges[self.E[i][he]].append(self.E[i][n])
+        return hyper_edges
+
+    def get_solitary_vertives():
+        # retourne une liste avec les sommets qui ne sont pas contenus
+        # dans une hyper-arête
+        pass
