@@ -18,7 +18,7 @@ class BipartiteGraph:
         self.V = V
         self.alone_Summits = alone_Summits
         self.E = E
-        
+
         self.B = nx.Graph()
         self.B.add_nodes_from(U, bipartite=0)
         self.B.add_nodes_from(V, bipartite=1)
@@ -48,7 +48,7 @@ class BipartiteGraph:
                 hyper_edges[self.E[i][he]].append(self.E[i][n])
         return hyper_edges
 
-    def get_solitary_vertives():
+    def get_solitary_vertices(self):
         # retourne une liste avec les sommets qui ne sont pas contenus
         # dans une hyper-arête
         return self.alone_Summits

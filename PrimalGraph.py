@@ -4,6 +4,8 @@ d'un hypergraphe
 """
 
 import networkx as nx
+import matplotlib.pyplot as plt
+
 
 class PrimalGraph:
     # hyper_aretes est un dictionaire
@@ -22,11 +24,18 @@ class PrimalGraph:
             Si le noeud est déjà contenu dans le graphe, on ne rajoute
             plus
             """
-            for i in range(1, len(summit_list) - 1):
+            for i in range(1, len(summit_list)):
                 # on relie les sommets entre eux
+                print("On relie ", summit_list[i-1], "et ", summit_list[i])
                 self.pg.add_edge(summit_list[i-1], summit_list[i])
+            # on relie le premier et le dernier
+            self.pg.add_edge(summit_list[0], summit_list[-1])
 
         self.pg.add_nodes_from(ss) # on ajoute les sommets seuls
 
-    def is_chordal():
+    def is_chordal(self):
         return nx.is_chordal(self.pg)
+
+    def draw(self):
+        nx.draw(self.pg, with_labels=True)
+        plt.show()
