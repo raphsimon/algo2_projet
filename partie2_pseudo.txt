@@ -1,13 +1,15 @@
 Ceci est le pseudocode pour la partie 2 du projet
 
+hg = generate_hypergraphe()
+
 test_hypertree(hg)
-  afficher_dual(hg)
+  afficher_dual(hg) # afficher le graphe biparti
   # tester si le hg est alpha-acyclqiue
   primal = to_primal(hg)
-  bool_cordal = is_cordal(hg)
+  bool_cordal = is_cordal(hg) # utiliser nx.is_chordal(G)
   # c contient les cliques maximales du graphe primal
   c = get_max_cliques(primal)
-  bool_cycles = test_cycles(c)
+  bool_cycles = test_cycles(c) # test_cycles : juste regarder la longueur des cycles
   return bool_cycles and bool_cordal
 
 
