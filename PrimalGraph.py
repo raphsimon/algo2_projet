@@ -5,6 +5,7 @@ d'un hypergraphe
 
 import networkx as nx
 import matplotlib.pyplot as plt
+from networkx.algorithms.clique import find_cliques
 
 
 class PrimalGraph:
@@ -39,3 +40,7 @@ class PrimalGraph:
     def draw(self):
         nx.draw(self.pg, with_labels=True)
         plt.show()
+    
+    def get_max_cliques(self):
+        # retourne un iterateur sur les cliques maximales
+        return find_cliques(self.pg)
