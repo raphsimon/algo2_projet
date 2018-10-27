@@ -14,7 +14,7 @@ def is_alphaAcyclic(bool_chordal, max_cliques, hyper_edges):
 				one_False = True
 		if not one_False:
 			res = True
-	return res 
+	return res
 
 def get_he_summits(hyper_edges):
 	# hyper_edges : type dictionary
@@ -35,9 +35,7 @@ def test_hypertree(hg):
 	bool_chordal = graphe_primal.is_chordal()
 	max_cliques = graphe_primal.get_max_cliques()
 	bool_alphaAcyclic = is_alphaAcyclic(bool_chordal, max_cliques, hyper_edges)
-	return bool_alphaAcyclic 
-
-
+	return bool_alphaAcyclic
 
 
 def main():
