@@ -27,7 +27,7 @@ class PrimalGraph:
             """
             for i in range(1, len(summit_list)):
                 # on relie les sommets entre eux
-                print("On relie ", summit_list[i-1], "et ", summit_list[i])
+                # print("On relie ", summit_list[i-1], "et ", summit_list[i])
                 self.pg.add_edge(summit_list[i-1], summit_list[i])
             # on relie le premier et le dernier
             self.pg.add_edge(summit_list[0], summit_list[-1])
@@ -40,7 +40,7 @@ class PrimalGraph:
     def draw(self):
         nx.draw(self.pg, with_labels=True)
         plt.show()
-    
+
     def get_max_cliques(self):
         # retourne un iterateur sur les cliques maximales
         return find_cliques(self.pg)
