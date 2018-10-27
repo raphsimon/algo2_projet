@@ -1,8 +1,6 @@
 """
 Génération aléatoire d'un hypergraphe
-un sommet a 1 chance sur 4 d'être un sommet isolé
-puis 4 chances sur 10 d'être dans l'hyper-arête dans la boucle "for l in range(len(U)):"
-Minimum sommets et 4 hyper-arêtes
+Minimum 4 sommets et 3 hyper-arêtes
 """
 
 from BipartiteGraph import *
@@ -19,8 +17,7 @@ def generate_Hypergraph():
 
     alone_Summits = [] # Liste des sommets solitaires
 
-    """ Génération de tuples pour creer notre graphe bipartit
-    """
+    """ Génération de tuples pour creer notre graphe bipartit """
     E = []
     for k in U: # k dans la liste des Sommets
         finaly = True       # Finalement, est-ce que le sommet à été lié à au moins une hyper-arête
