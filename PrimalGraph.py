@@ -30,7 +30,8 @@ class PrimalGraph:
                 # print("On relie ", summit_list[i-1], "et ", summit_list[i])
                 self.pg.add_edge(summit_list[i-1], summit_list[i])
             # on relie le premier et le dernier
-            self.pg.add_edge(summit_list[0], summit_list[-1])
+            if len(summit_list) > 1: # Evite les auto-boucles
+                self.pg.add_edge(summit_list[0], summit_list[-1])
 
         self.pg.add_nodes_from(ss) # on ajoute les sommets seuls
 

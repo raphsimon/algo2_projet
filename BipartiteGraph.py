@@ -15,8 +15,8 @@ class BipartiteGraph:
         # E représente les connections entre les deux ensembles de noeuds (liste de tuples (sommet, hyper-arête))
         # les noeuds d'un ensemble ne sont pas reliés entre eux => propriété du graphe biparti
 
-        self.U = U
-        self.V = V
+        self.U = U # Sommets
+        self.V = V # Hyper-arêtes
         self.alone_Summits = alone_Summits # Sommets isolés
         self.E = E
 
