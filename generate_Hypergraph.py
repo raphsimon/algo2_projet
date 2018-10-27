@@ -17,7 +17,7 @@ def Add_or_not(node, hyp, E):
         return E
 
 def generate_Hypergraph():
-
+    # On se sert des graphes d'incidence pour générer l'hypergraphe
     _V = randint(3,10)
     _U = randint(4,7)
 

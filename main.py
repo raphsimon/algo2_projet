@@ -5,15 +5,15 @@ from PrimalGraph import *
 
 
 def is_alphaAcyclic(bool_chordal, max_cliques, hyper_edges):
-	res = False
-	if bool_chordal:
-		he_summits = get_he_summits(hyper_edges)
-		one_False = False
-		for cliques in max_cliques:
-			if cliques.sort() not in he_summits:
-				one_False = True
-		if not one_False:
-			res = True
+	res = True
+	# pour que l'hypergraphe soit un hypertree il faut satisfaire les
+	# 2 conditions (graphe primal er chordal ET alpha-acyclique)
+	he_summits = get_he_summits(hyper_edges)
+	for cliques in max_cliques:
+		# on sort pour que le IN fonctionne car les sommets dans
+		# max_cliques ne sont pas triées
+		if cliques.sort() not in he_summits:
+			res = False
 	return res
 
 def get_he_summits(hyper_edges):
@@ -28,13 +28,18 @@ def get_he_summits(hyper_edges):
 
 
 def test_hypertree(hg):
-	# afficher hypergraphe
+	#
+	# TO DO : afficher hypergraphe
+	#
 	hyper_edges = hg.get_hyper_edges()
 	solitary_vertices = hg.get_solitary_vertices()
 	graphe_primal = PrimalGraph(hyper_edges, solitary_vertices)
 	bool_chordal = graphe_primal.is_chordal()
-	max_cliques = graphe_primal.get_max_cliques()
-	bool_alphaAcyclic = is_alphaAcyclic(bool_chordal, max_cliques, hyper_edges)
+	if bool_chordal:
+		max_cliques = graphe_primal.get_max_cliques()
+		bool_alphaAcyclic = is_alphaAcyclic(bool_chordal, max_cliques, hyper_edges)
+	else:
+		bool_alphaAcyclic = False
 	return bool_alphaAcyclic
 
 
