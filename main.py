@@ -50,14 +50,7 @@ def main():
     print(random_Hy_Graph.get_hyper_edges())
     print(random_Hy_Graph.get_solitary_vertices())
     print()
-    pg = PrimalGraph(random_Hy_Graph.get_hyper_edges(), random_Hy_Graph.get_solitary_vertices())
-    max_cliques = pg.get_max_cliques()
-    print("Les cliques maximales du graphe: ")
-    for cliques in max_cliques:
-    	print(cliques)
-    pg.draw()
-    print(pg.is_chordal())
-
+    print(test_hypertree(random_Hy_Graph))
 
 
 if __name__ == '__main__':
