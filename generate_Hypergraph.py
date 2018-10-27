@@ -22,8 +22,13 @@ def Add_or_not(node, hyp, E):
         return E
 
 def generate_Hypergraph():
+<<<<<<< HEAD
 
     _V = randint(3,10) # Calcul du nombre de sommets et hyper-arêtes
+=======
+    # On se sert des graphes d'incidence pour générer l'hypergraphe
+    _V = randint(3,10)
+>>>>>>> 7e8f348af427105ef8eea3fb837f505613e32349
     _U = randint(4,7)
 
     V = ['v' + str(i) for i in range(1, _V +1)]

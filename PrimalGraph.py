@@ -42,5 +42,5 @@ class PrimalGraph:
         plt.show()
 
     def get_max_cliques(self):
-        # retourne un iterateur sur les cliques maximales
+        # retourne un iterateur sur les cliques maximales du graphe primal
         return find_cliques(self.pg)
