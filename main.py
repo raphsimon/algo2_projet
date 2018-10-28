@@ -13,14 +13,14 @@ def main():
     print("On commence le parcours de l'arbre")
     print()
     print("------------Arbre de Base------------")
-    #depthFirst(myTree)
+    # depthFirst(myTree)
     tree_representation(myTree)
 
     max_subtree(myTree)
     print()
     print("------------Arbre de Après maximisation------------")
-    depthFirst(myTree)
-    #tree_representation(myTree)
+    # depthFirst(myTree)
+    tree_representation(myTree)
 
 if __name__ == "__main__":
     main()
