@@ -1,5 +1,4 @@
 import networkx as nx
-#from networkx.drawing.nx_agraph import write_dot, graphviz_layout
 import matplotlib.pyplot as plt
 from random import randint
 
