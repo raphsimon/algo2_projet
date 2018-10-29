@@ -39,7 +39,9 @@ class PrimalGraph:
         return nx.is_chordal(self.pg)
 
     def draw(self):
-        nx.draw(self.pg, with_labels=True)
+        plt.figure("Primal Graph")
+        # pos = nx.spring_layout(self, scale = 2)
+        nx.draw_spring(self.pg, with_labels=True)
         plt.show()
 
     def get_max_cliques(self):

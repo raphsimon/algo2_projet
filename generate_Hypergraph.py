@@ -17,8 +17,9 @@ def generate_Hypergraph():
 
     alone_Summits = [] # Liste des sommets solitaires
 
+
     """ Génération de tuples pour creer notre graphe bipartit """
-    E = []
+    E = [] # liste des tuples
     for k in U: # k dans la liste des Sommets
         finaly = True       # Finalement, est-ce que le sommet à été lié à au moins une hyper-arête
         if randint(0,3) != 0:   # Sinon => sommet solitaire
@@ -27,8 +28,8 @@ def generate_Hypergraph():
                 if chance < 4:
                     finaly = False
                     E.append((V[l], k))
-        if finaly:
-            alone_Summits.append(k)
+                if finaly and l == (len(V)-1):
+                    alone_Summits.append(k)
 
         else:
             alone_Summits.append(k)
