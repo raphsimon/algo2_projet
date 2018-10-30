@@ -35,7 +35,7 @@ def test_hypertree(hg):
 	hgd = hg.to_Dual()
 	hgd.draw()
 	hyper_edges = hgd.get_hyper_edges()
-	primal_graph = PrimalGraph(hyper_edges, hg.get_solitary_vertices())
+	primal_graph = PrimalGraph(hg.get_hyper_edges(), hg.get_solitary_vertices())
 	primal_graph.draw()
 	graphe_primal = PrimalGraph(hyper_edges, hgd.get_solitary_vertices())
 	graphe_primal.draw()
