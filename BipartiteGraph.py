@@ -11,7 +11,7 @@ from networkx.algorithms import bipartite
 class BipartiteGraph:
     # summits et Hyp_edges sont des listes
     # conexions est une liste de tuples un tuple cotient un elem de summits et de Hyp_edges
-    def __init__(self, summits, Hyp_edges, conexions, alone_Summits):
+    def __init__(self, summits, Hyp_edges, conexions, alone_Summits, alone_Hyp_edges):
         # summits et Hyp_edges sont les deux ensembles de noeuds (Sommets, Hyper-arêtes)
         # conexions représente les connections entre les deux ensembles de noeuds (liste de tuples (sommet, hyper-arête))
         # les noeuds d'un ensemble ne sont pas reliés entre eux => propriété du graphe biparti
@@ -19,7 +19,9 @@ class BipartiteGraph:
         self.summits = summits # Sommets
         self.Hyp_edges = Hyp_edges # Hyper-arêtes
         self.alone_Summits = alone_Summits # Sommets isolés
+        self.alone_Hyp_edges = alone_Hyp_edges
         self.conexions = conexions
+
 
         self.B = nx.Graph()
         self.B.add_nodes_from(summits, bipartite=0) # Distinguer les deux ensembles
@@ -51,7 +53,7 @@ class BipartiteGraph:
         hyper_edges = {}
         he = 0      # hyper edge
         n = 1       # node in hyperedge
-        for i in range(len(self.conexions) - 1):
+        for i in range(len(self.conexions)):
             if self.conexions[i][he] not in hyper_edges:
                 hyper_edges[self.conexions[i][he]] = [self.conexions[i][n]]
             else:
@@ -64,11 +66,19 @@ class BipartiteGraph:
         # dans une hyper-arête
         return self.alone_Summits
 
-    def to_Dual(self, Hypergraph):
-        pass
+    def to_Dual(self):
+        # Retourne le graphe Dual (inversé)
+        return BipartiteGraph(self.Hyp_edges, self.summits, [tuple(reversed(x)) for x in self.conexions], self.alone_Hyp_edges, self.alone_Summits)
+
 
     def draw(self):
-        # pos = nx.spring_layout(self, scale=2)
+
+
+        X = self.summits
+        Y = self.Hyp_edges
+        pos = dict()
+        pos.update( (j, (1, i)) for i, j in enumerate(X) ) # put nodes from X at x=1
+        pos.update( (j, (2, i)) for i, j in enumerate(Y) ) # put nodes from Y at x=2
         plt.figure("Dual Graph")
-        nx.draw(self.B, node_color = self.colors, with_labels=True)
+        nx.draw(self.B, node_color = self.colors, pos=pos, with_labels = True)
         plt.show()

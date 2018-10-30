@@ -30,12 +30,14 @@ def get_he_summits(hyper_edges):
 
 
 def test_hypertree(hg):
-	#
-	# TO DO : afficher hypergraphe
-	#
+
 	hg.draw()
-	hyper_edges = hg.get_hyper_edges()
-	graphe_primal = PrimalGraph(hyper_edges, hg.get_solitary_vertices())
+	hgd = hg.to_Dual()
+	hgd.draw()
+	hyper_edges = hgd.get_hyper_edges()
+	primal_graph = PrimalGraph(hyper_edges, hg.get_solitary_vertices())
+	primal_graph.draw()
+	graphe_primal = PrimalGraph(hyper_edges, hgd.get_solitary_vertices())
 	graphe_primal.draw()
 	bool_chordal = graphe_primal.is_chordal()
 
@@ -44,13 +46,11 @@ def test_hypertree(hg):
 
 def main():
 
-    random_Hy_Graph = generate_Hypergraph()
-
-    print("Sommets dans les Hyper-arêtes: ", random_Hy_Graph.get_hyper_edges())
-    print("Sommets seuls: ", random_Hy_Graph.get_solitary_vertices())
-    print()
-    print(test_hypertree(random_Hy_Graph))
-
+	random_Hy_Graph = generate_Hypergraph()
+	print("Sommets dans les Hyper-arêtes: ", random_Hy_Graph.get_hyper_edges())
+	print("Sommets seuls: ", random_Hy_Graph.get_solitary_vertices())
+	print("Conexions: ", random_Hy_Graph.get_edges())
+	print(test_hypertree(random_Hy_Graph))
 
 
 if __name__ == '__main__':
