@@ -70,15 +70,13 @@ class BipartiteGraph:
         # Retourne le graphe Dual (inversé)
         return BipartiteGraph(self.Hyp_edges, self.summits, [tuple(reversed(x)) for x in self.conexions], self.alone_Hyp_edges, self.alone_Summits)
 
-
     def draw(self):
-
 
         X = self.summits
         Y = self.Hyp_edges
         pos = dict()
-        pos.update( (j, (1, i)) for i, j in enumerate(X) ) # put nodes from X at x=1
-        pos.update( (j, (2, i)) for i, j in enumerate(Y) ) # put nodes from Y at x=2
+        pos.update( (j, (1, i)) for i, j in enumerate(X) ) # position
+        pos.update( (j, (2, i)) for i, j in enumerate(Y) )
         plt.figure("Dual Graph")
         nx.draw(self.B, node_color = self.colors, pos=pos, with_labels = True)
         plt.show()

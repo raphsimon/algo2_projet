@@ -8,12 +8,8 @@ from random import randint
 
 def generate_Hypergraph():
 
-    _U = randint(4,7) # Sommets
-    _V = randint(3,10) # hyper-arêtes
-    # On se sert des graphes d'incidence pour générer l'hypergraphe
-
-    U = ['v' + str(j) for j in range(1, _U +1)]
-    V = ['E' + str(i) for i in range(1, _V +1)]
+    U = ['v' + str(j) for j in range(1, randint(4,7) +1)] # Sommets
+    V = ['E' + str(i) for i in range(1, randint(3,10) +1)] # Hyper-arêtes
 
     alone_Summits = []      # Liste des sommets solitaires
     alone_Hyp_edges = V[:]  # liste des hyper-arêtes solitaires

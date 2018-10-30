@@ -47,10 +47,11 @@ def test_hypertree(hg):
 def main():
 
 	random_Hy_Graph = generate_Hypergraph()
-	print("Sommets dans les Hyper-arêtes: ", random_Hy_Graph.get_hyper_edges())
-	print("Sommets seuls: ", random_Hy_Graph.get_solitary_vertices())
-	print("Conexions: ", random_Hy_Graph.get_edges())
-	print(test_hypertree(random_Hy_Graph))
+	#print("Sommets dans les Hyper-arêtes: ", random_Hy_Graph.get_hyper_edges())
+	#print("Sommets seuls: ", random_Hy_Graph.get_solitary_vertices())
+	#print("Conexions: ", random_Hy_Graph.get_edges())
+
+	print("\n\nHyperTree ?: ", test_hypertree(random_Hy_Graph))
 
 
 if __name__ == '__main__':

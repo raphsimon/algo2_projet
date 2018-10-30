@@ -40,8 +40,7 @@ class PrimalGraph:
 
     def draw(self):
         plt.figure("Primal Graph")
-        # pos = nx.spring_layout(self, scale = 2)
-        nx.draw_spring(self.pg, with_labels=True)
+        nx.draw(self.pg, with_labels=True)
         plt.show()
 
     def get_max_cliques(self):
