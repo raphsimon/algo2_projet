@@ -18,7 +18,9 @@ def main():
     
 
     # tree_representation(myTree)
-    print_tree(myTree)
+    #
+    # first print_tree fonctionne
+    # print_tree(myTree)
 
 
     TREE = max_subtree(myTree)
