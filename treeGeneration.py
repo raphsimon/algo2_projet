@@ -13,7 +13,7 @@ def treeGeneration():
     """
     summit = WeightedTree("r", randint(-5, 5), None)
     nbOfSummits = randint(7, 14) # 14 comme le sommet r est déjà créé
-    node_name = 97
+    node_name = 97 # identifiant: lettre du sommet (97 -> lettre a )
     print("This tree will have ", nbOfSummits, " children(s)")
     addChildrenToTree(summit, nbOfSummits, node_name)
     return summit
@@ -46,7 +46,7 @@ def addChildrenToTree(summit, childrenToAdd, node_name):
 
 
 def distribution(nbSummits, childrenToAdd):
-    #print(childrenToAdd)
+    # Distibue le nombre de fils à rajouter à chaque noeud
     liste = list()
     rest = 0
     for i in range(nbSummits):
@@ -55,17 +55,5 @@ def distribution(nbSummits, childrenToAdd):
         rest += res
 
     liste[-1] += (childrenToAdd-sum(liste))
-    #print(liste)
+
     return liste
-
-
-
-# def distribution(children, children_add_now):
-#     partition = children // children_add_now
-#     rest = children - (partition * children_add_now)
-#     partition_list = []
-#     for i in range(children_add_now):
-#         partition_list.append(partition)
-#     partition_list[0, randint(0, len(partition_list) - 1)] += rest
-#     return partition_list
-#

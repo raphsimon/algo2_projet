@@ -7,15 +7,6 @@ un graphe non connexe et les algorithmes pour le parcours d'AB
 ne sont pas adaptés à notre structure de données
 """
 
-# def depthFirst(summit):
-#
-#     if summit != None:
-#         print(summit.getRootVal(), " ", summit.getWeight())
-#
-#         for child_i in range(summit.getNbChildren()):
-#             nextNode = summit.getChildren(child_i)
-#             depthFirst(nextNode)
-#
 
 def max_subtree(summit):
 
@@ -25,9 +16,11 @@ def max_subtree(summit):
         max_subtree(nextNode)
 
     if summit.getRootVal() != "r":
+
         if summit.getNbChildren() == 0:     # Si le sommet rencontré est une feuille
             if summit.getWeight() <= 0:     # Si la feuille est de poids négatif ou égale 0
                 # Suppression de la feuille
+                print('ok')
                 summit.getFather().deleteChild(summit)
             else:
                 # Contribution positive -> mettre à jour le potentiel du père
@@ -48,4 +41,4 @@ def max_subtree(summit):
         if summit.getNbChildren() == 0:
             print("Il n'existe pas de sous-arbre de poids maximum !")
             summit.deleteAllChildren()
-            # return [] # Rteourner l'ensemble vide si pas de sous arbre maximum
+            # return [] # Retourner l'ensemble vide si pas de sous arbre maximum

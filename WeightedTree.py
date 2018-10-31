@@ -11,11 +11,15 @@ class WeightedTree:
         self.nbChildren = 0     # Nombre d'enfants
         self.potential = weight # Somme du sommet avec les sommes des enfants
 
-    def getRootVal(self):
-        return self.key
-
     # def setRootVal(self, obj):
     #     self.key = obj
+    # def setWeight(self, newWeight):
+    #     self.weight = newWeight
+    # def setFather(self, newFather):
+    #     self.father = newFather
+
+    def getRootVal(self):
+        return self.key
 
     def setPotential(self, value):
         self.potential += value
@@ -26,14 +30,8 @@ class WeightedTree:
     def getFather(self):
         return self.father
 
-    # def setFather(self, newFather):
-    #     self.father = newFather
-
     def getWeight(self):
         return self.weight
-
-    # def setWeight(self, newWeight):
-    #     self.weight = newWeight
 
     def getChildren(self, childNb):
         # Renvoie un enfant en particulier
