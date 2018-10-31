@@ -9,7 +9,7 @@ from random import randint
 def generate_Hypergraph():
 
     U = ['v' + str(j) for j in range(1, randint(4,7) +1)] # Sommets
-    V = ['E' + str(i) for i in range(1, randint(3,10) +1)] # Hyper-arêtes
+    V = ['E' + str(i) for i in range(1, randint(3,7) +1)] # Hyper-arêtes
 
     alone_Summits = []      # Liste des sommets solitaires
     alone_Hyp_edges = V[:]  # liste des hyper-arêtes solitaires
