@@ -68,10 +68,12 @@ class BipartiteGraph:
 
     def to_Dual(self):
         # Retourne l'hypergraphe Dual (inversé)
+        # CHANGER v1 en Ev1 par ex.
+        #return BipartiteGraph(self.Hyp_edges, ['E' + i for i in self.summits], [tuple(reversed(x)) for x in self.conexions], self.alone_Hyp_edges, self.alone_Summits)
         return BipartiteGraph(self.Hyp_edges, self.summits, [tuple(reversed(x)) for x in self.conexions], self.alone_Hyp_edges, self.alone_Summits)
 
     def draw(self):
-
+        # Rperésntation en graphe biparti
         X = self.summits
         Y = self.Hyp_edges
         pos = dict()
