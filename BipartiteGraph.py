@@ -67,7 +67,7 @@ class BipartiteGraph:
         return self.alone_Summits
 
     def to_Dual(self):
-        # Retourne le graphe Dual (inversé)
+        # Retourne l'hypergraphe Dual (inversé)
         return BipartiteGraph(self.Hyp_edges, self.summits, [tuple(reversed(x)) for x in self.conexions], self.alone_Hyp_edges, self.alone_Summits)
 
     def draw(self):
