@@ -22,7 +22,6 @@ class BipartiteGraph:
         self.alone_Hyp_edges = alone_Hyp_edges
         self.conexions = conexions
 
-
         self.B = nx.Graph()
         self.B.add_nodes_from(summits, bipartite=0) # Distinguer les deux ensembles
         self.B.add_nodes_from(Hyp_edges, bipartite=1)
@@ -68,9 +67,8 @@ class BipartiteGraph:
 
     def to_Dual(self):
         # Retourne l'hypergraphe Dual (inversé)
-        # CHANGER v1 en Ev1 par ex.
-        #return BipartiteGraph(self.Hyp_edges, ['E' + i for i in self.summits], [tuple(reversed(x)) for x in self.conexions], self.alone_Hyp_edges, self.alone_Summits)
-        return BipartiteGraph(self.Hyp_edges, self.summits, [tuple(reversed(x)) for x in self.conexions], self.alone_Hyp_edges, self.alone_Summits)
+        return BipartiteGraph(self.Hyp_edges, ['E' + i for i in self.summits], [tuple(reversed((x[0], 'E'+x[1]))) for x in self.conexions], self.alone_Hyp_edges, ['E' + j for j in self.alone_Summits])
+        #return BipartiteGraph(self.Hyp_edges, self.summits, [tuple(reversed(x) for x in self.conexions], self.alone_Hyp_edges, self.alone_Summits)
 
     def draw(self):
         # Rperésntation en graphe biparti

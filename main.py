@@ -31,9 +31,9 @@ def get_he_summits(hyper_edges):
 
 def test_hypertree(hg):
 
-	hg.draw()
-	primal_graph = PrimalGraph(hg.get_hyper_edges(), hg.get_solitary_vertices())
-	primal_graph.draw()
+	# hg.draw()
+	# primal_graph = PrimalGraph(hg.get_hyper_edges(), hg.get_solitary_vertices())
+	# primal_graph.draw()
 
 	hgd = hg.to_Dual()
 	hgd.draw()
