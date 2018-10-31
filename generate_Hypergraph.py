@@ -25,7 +25,7 @@ def generate_Hypergraph():
                     finaly = False
                     E.append((v, u))
                     if v in alone_Hyp_edges:
-                        alone_Hyp_edges.remove(v)
+                        alone_Hyp_edges.remove(v) # Hper-arête reliée -> N'est plus seule
 
                 if finaly and v == (len(V)-1):
                     alone_Summits.append(u)
