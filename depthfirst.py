@@ -54,4 +54,4 @@ def max_subtree(summit):
             summit.deleteAllChildren()
             # return [] # Retourner l'ensemble vide si pas de sous arbre maximum
 
-    #return summit
+    return summit

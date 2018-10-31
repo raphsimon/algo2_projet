@@ -20,7 +20,7 @@ def main():
     # tree_representation(myTree)
     #
     # first print_tree fonctionne
-    # print_tree(myTree)
+    print_tree(myTree)
 
 
     TREE = max_subtree(myTree)
@@ -28,7 +28,6 @@ def main():
     print("------------Arbre de Après maximisation------------")
     #depthFirst(TREE)
     
-
     #tree_representation(TREE)
     print_tree(TREE)
 
