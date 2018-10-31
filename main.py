@@ -4,7 +4,7 @@ from BipartiteGraph import *
 from PrimalGraph import *
 
 
-def is_alphaAcyclic(bool_chordal, max_cliques, hyper_edges):
+def is_alphaAcyclic(max_cliques, hyper_edges):
 	res = True
 	# pour que l'hypergraphe soit un hypertree il faut satisfaire les
 	# 2 conditions (graphe primal chordal ET alpha-acyclique)
@@ -37,12 +37,10 @@ def test_hypertree(hg):
 
 	hgd = hg.to_Dual()
 	hgd.draw()
-	hyper_edges = hgd.get_hyper_edges()
-	graphe_primal = PrimalGraph(hyper_edges, hgd.get_solitary_vertices())
+	graphe_primal = PrimalGraph(hgd.get_hyper_edges(), hgd.get_solitary_vertices())
 	graphe_primal.draw()
-	bool_chordal = graphe_primal.is_chordal()
 
-	return bool_chordal and is_alphaAcyclic(bool_chordal, graphe_primal.get_max_cliques(), hyper_edges)
+	return graphe_primal.is_chordal() and is_alphaAcyclic(graphe_primal.get_max_cliques(), hg.get_hyper_edges())
 
 
 def main():
