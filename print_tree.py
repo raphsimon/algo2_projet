@@ -27,11 +27,10 @@ def print_tree(tree):
 	Where the successors are the children of a node. Here we the
 	successors will only be children one level lower than the parent
 	"""
-	try:
-		tree == []
+	if tree.getAllChildren() == []:
 		print("r : []")
 		print("Pas de sous arbre maximal pour cet arbre!")
-	except:
+	else:
 		q = Queue()
 		q.enqueue(tree)
 		while not q.isEmpty():

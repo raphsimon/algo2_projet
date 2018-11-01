@@ -50,7 +50,7 @@ def max_subtree(summit):
 
     else:
         if summit.getNbChildren() == 0:
-            print("Il n'existe pas de sous-arbre de poids maximum !")
+            print("Il n'existe pas de sous-arbre de poids maximum !!!!!!!")
             summit.deleteAllChildren()
             return [] # Retourner l'ensemble vide si pas de sous arbre maximum
 
