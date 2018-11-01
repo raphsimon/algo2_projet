@@ -15,7 +15,7 @@ def main():
     print()
     print("------------Arbre de Base------------")
     #depthFirst(myTree)
-    
+
 
     # tree_representation(myTree)
     #
@@ -27,7 +27,7 @@ def main():
     print()
     print("------------Arbre de Après maximisation------------")
     #depthFirst(TREE)
-    
+
     #tree_representation(TREE)
     print_tree(TREE)
 
