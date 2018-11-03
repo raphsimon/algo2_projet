@@ -14,7 +14,7 @@ def main():
     print("On commence le parcours de l'arbre")
     print()
     print("------------Arbre de Base------------")
-    #depthFirst(myTree)
+    # depthFirst(myTree)
 
 
     # tree_representation(myTree)
@@ -26,7 +26,7 @@ def main():
     TREE = max_subtree(myTree)
     print()
     print("------------Arbre de Après maximisation------------")
-    #depthFirst(TREE)
+    # depthFirst(TREE)
 
     #tree_representation(TREE)
     print_tree(TREE)
