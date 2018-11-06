@@ -3,29 +3,39 @@ from BipartiteGraph import *
 from PrimalGraph import *
 
 
-def max_cliques(max_cliques, hyper_edges):   # BUG: Verifier si c'est juste !!!
+def max_cliques(max_cliques, he_summits):   # BUG: Verifier si c'est juste !!!
+
 	res = True
 	# pour que l'hypergraphe soit un hypertree il faut satisfaire les
 	# 2 conditions (graphe primal chordal ET alpha-acyclique)
-	he_summits = get_he_summits(hyper_edges)
 	for cliques in max_cliques:
-		# on sort pour que le IN fonctionne car les sommets dans
-		# max_cliques ne sont pas triées
-		if cliques.sort() not in he_summits:
-			res = False
+		if len(cliques) >= 2:
+			pos = 0
+			for i in cliques:
+				cliques[pos] = 'v'+ i[1]
+				# On change le nom car à l'affichage ce sont des sommets qui s'apellent "E" et non 'v'
+				# Vu que l'on a permuté les ensembles
+				pos += 1
+			# on sort pour que le IN fonctionne car les sommets dans
+			# max_cliques ne sont pas triées
+			cliques.sort()
+			if  cliques not in he_summits:
+				res = False
 	return res
+
+
 
 def get_he_summits(hyper_edges):
 	# hyper_edges : type dictionary
 	# Cette fonction retourne une liste contenant des listes.
 	# Ces listes contiennent les sommets contenu dans une hyper-arête
-	summit_matrix = []
+	summit_sets = []
 	for keys in hyper_edges:
-		if len(hyper_edges[keys]) >= 2:
 			# Clique de taille 2 ou plus
-			summit_matrix.append(hyper_edges[keys])
+		summit_sets.append(hyper_edges[keys])
 
-	return summit_matrix
+	return summit_sets
+
 
 
 def test_hypertree(hg):
@@ -37,9 +47,11 @@ def test_hypertree(hg):
 	hgd = hg.to_Dual()
 	hgd.draw()
 	graphe_primal = PrimalGraph(hgd.get_hyper_edges(), hgd.get_solitary_vertices())
-	graphe_primal.draw()
+	# graphe_primal.draw()
 
-	return graphe_primal.is_chordal() and max_cliques(graphe_primal.get_max_cliques(), hg.get_hyper_edges())
+	# get_max_cliques est un méthode de Networkx
+	print(graphe_primal.is_chordal())
+	return graphe_primal.is_chordal() and max_cliques(graphe_primal.get_max_cliques(), get_he_summits(hg.get_hyper_edges()))
 
 
 def main():
@@ -48,7 +60,6 @@ def main():
 	#print("Sommets dans les Hyper-arêtes: ", random_Hy_Graph.get_hyper_edges())
 	#print("Sommets seuls: ", random_Hy_Graph.get_solitary_vertices())
 	#print("Conexions: ", random_Hy_Graph.get_edges())
-
 	print("\n\nHyperTree ?: ", test_hypertree(random_Hy_Graph))
 
 

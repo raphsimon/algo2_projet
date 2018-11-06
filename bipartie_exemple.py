@@ -4,8 +4,9 @@ import matplotlib.pyplot as plt
 
 from main import *
 
-""" Graphe de l'énoncé, doit renvoyer True"""
 
+
+""" Graphe de l'énoncé, doit renvoyer True"""
 
 U = ['v1', 'v2', 'v3', 'v4', 'v5', 'v6', 'v7']
 V = ['E1', 'E2', 'E3', 'E4']
@@ -13,4 +14,4 @@ E = [('E1', 'v1'), ('E1', 'v2'), ('E2', 'v2'), ('E1', 'v3'), ('E2', 'v3'), ('E3'
 
 graph = BipartiteGraph(U, V, E, ['v7'], [])
 
-print(test_hypertree(graph))
+print("\n\nHypertree?: ", test_hypertree(graph))
