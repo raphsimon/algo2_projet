@@ -1,4 +1,5 @@
 from WeightedTree import *
+from depthfirst import*
 
 import networkx as nx
 import matplotlib.pyplot as plt
@@ -57,5 +58,6 @@ def tree_representation(tree):
     #nx.draw(G, pos=hierarchy_pos(G, 0), with_labels=True)
     #G = nx.Graph(name = tree.getRootVal(), weight = tree.getWeight())
     #G = tree_creation(nx.Graph(name = tree.getRootVal(), weight = tree.getWeight()), tree)
+    depthFirst(tree)
     G = tree_creation(tree)
     tree_show(G)

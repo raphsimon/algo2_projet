@@ -9,26 +9,30 @@ from print_tree import *
 def main():
 
     myTree = treeGeneration()
+    myTree2 = treeGeneration()
     print("Weight of root: ", myTree.getWeight())
     print("Number of children root has: ", myTree.getNbChildren())
     print("On commence le parcours de l'arbre")
     print()
     print("------------Arbre de Base------------")
-    # depthFirst(myTree)
 
 
-    # tree_representation(myTree)
-    #
+    #tree_representation(myTree)
+    #tree_representation(myTree2) # POURQUOI UN MAXIMUM RECURSION ???? WTF
+
+
+
     # first print_tree fonctionne
     print_tree(myTree)
 
 
-    TREE = max_subtree(myTree)
+    max_subtree(myTree)
     print()
     print("------------Arbre de Après maximisation------------")
-    # depthFirst(TREE)
 
-    #tree_representation(TREE)
+    #tree_representation(myTree)
+
+
     print_tree(TREE)
 
 if __name__ == "__main__":
