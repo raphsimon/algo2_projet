@@ -3,13 +3,13 @@ from BipartiteGraph import *
 from PrimalGraph import *
 
 
-def max_cliques(max_cliques, he_summits):   # BUG: Verifier si c'est juste !!!
+def max_cliques(max_cliques, he_summits):
 
 	res = True
 	# pour que l'hypergraphe soit un hypertree il faut satisfaire les
 	# 2 conditions (graphe primal chordal ET alpha-acyclique)
 	for cliques in max_cliques:
-		if len(cliques) >= 2:
+		if len(cliques) >= 2: # de taille 2 ou plus
 			pos = 0
 			for i in cliques:
 				cliques[pos] = 'v'+ i[1]
@@ -31,7 +31,6 @@ def get_he_summits(hyper_edges):
 	# Ces listes contiennent les sommets contenu dans une hyper-arête
 	summit_sets = []
 	for keys in hyper_edges:
-			# Clique de taille 2 ou plus
 		summit_sets.append(hyper_edges[keys])
 
 	return summit_sets
