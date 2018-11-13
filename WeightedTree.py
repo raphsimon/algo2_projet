@@ -1,3 +1,10 @@
+"""
+Date: 12.11.18
+Authors: Aris Mangriotis, Raphael Simon
+
+Projet: Algorithmique
+"""
+
 class WeightedTree:
     """
     Ceci est l'implémentation de l'ADT pour résoudre le problème
@@ -10,13 +17,6 @@ class WeightedTree:
         self.childrenList = []  # Pas d'enfants par défaut
         self.nbChildren = 0     # Nombre d'enfants
         self.potential = weight # Somme du sommet avec les sommes des enfants
-
-    # def setRootVal(self, obj):
-    #     self.key = obj
-    # def setWeight(self, newWeight):
-    #     self.weight = newWeight
-    # def setFather(self, newFather):
-    #     self.father = newFather
 
     def getRootVal(self):
         return self.key

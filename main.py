@@ -1,39 +1,28 @@
-from WeightedTree import *
-from depthfirst import *
-from random import randint
+"""
+Date: 12.11.18
+Authors: Aris Mangriotis, Raphael Simon
+
+Projet: Algorithmique
+"""
+
+#from WeightedTree import *
+from max_subtree import *
 from treeGeneration import *
-from tree_Representation_nx import *
 from print_tree import *
+from main_hypertree import *
 
 
 def main():
-
-    myTree = treeGeneration()
-    myTree2 = treeGeneration()
-    print("Weight of root: ", myTree.getWeight())
-    print("Number of children root has: ", myTree.getNbChildren())
-    print("On commence le parcours de l'arbre")
+    random_Tree = treeGeneration()
+    print("\n---------------Arbre avant la maximisation------------\n")
+    print_tree(random_Tree)
     print()
-    print("------------Arbre de Base------------")
-
-
-    #tree_representation(myTree)
-    #tree_representation(myTree2) # POURQUOI UN MAXIMUM RECURSION ???? WTF
-
-
-
-    # first print_tree fonctionne
-    print_tree(myTree)
-
-
-    max_subtree(myTree)
+    max_subtree(random_Tree)
+    print("\n---------------Arbre de Après maximisation------------\n")
+    print_tree(random_Tree)
     print()
-    print("------------Arbre de Après maximisation------------")
 
-    #tree_representation(myTree)
-
-
-    print_tree(TREE)
 
 if __name__ == "__main__":
     main()
+    main_hypertree()
