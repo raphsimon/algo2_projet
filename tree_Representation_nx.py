@@ -33,7 +33,6 @@ def hierarchy_pos(G, root, width=1., vert_gap = 0.2, vert_loc = 0, xcenter = 0.5
     return pos
 
 
-
 def tree_show(G):
     """Affichage de l'arbre"""
     #nx.draw(G, pos=nx.circular_layout(G), with_labels=True)

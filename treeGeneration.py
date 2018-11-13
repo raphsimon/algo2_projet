@@ -1,6 +1,10 @@
+"""
+Mangriotis Aris	: 	000460001
+Simon Raphael 	: 	000462263
+"""
+
 from WeightedTree import *
 from random import randint
-
 
 # returns a tree
 def treeGeneration():

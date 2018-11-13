@@ -1,3 +1,7 @@
+"""
+Mangriotis Aris	: 	000460001
+Simon Raphael 	: 	000462263
+"""
 
 """
 Ceci est l'implémentation de l'algorithme de parcours de graphe
@@ -6,16 +10,6 @@ On utilise cet algorithme parce que l'arbre que nous avons est
 un graphe non connexe et les algorithmes pour le parcours d'AB
 ne sont pas adaptés à notre structure de données
 """
-
-
-def depthFirst(summit):
-
-    print(summit.getRootVal())
-    for child in summit.getAllChildren():
-        if child != None:
-            depthFirst(child)
-
-
 
 def max_subtree(summit):
 
@@ -50,7 +44,6 @@ def max_subtree(summit):
 
     else:
         if summit.getNbChildren() == 0:
-            print("Il n'existe pas de sous-arbre de poids maximum !!!!!!!")
             summit.deleteAllChildren()
             return [] # Retourner l'ensemble vide si pas de sous arbre maximum
 
