@@ -1,7 +1,12 @@
 """
+Date: 12.11.18
+Authors:
 Mangriotis Aris	: 	000460001
 Simon Raphael 	: 	000462263
+
+Projet: Algorithmique
 """
+
 class WeightedTree:
     """
     Ceci est l'implémentation de l'ADT pour résoudre le problème

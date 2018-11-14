@@ -1,12 +1,17 @@
 """
+Date: 12.11.18
+Authors:
 Mangriotis Aris	: 	000460001
 Simon Raphael 	: 	000462263
+
+Projet: Algorithmique
 """
 
 from WeightedTree import *
 from random import randint
 
-# returns a tree
+
+# return type: WeightedTree
 def treeGeneration():
     """
     Cette fonction génère un arbre parmi les règles suivantes:
@@ -18,7 +23,6 @@ def treeGeneration():
     summit = WeightedTree("r", randint(-5, 5), None)
     nbOfSummits = randint(7, 14) # 14 comme le sommet r est déjà créé
     node_name = 97 # identifiant: lettre du sommet (97 -> lettre a )
-    print("This tree will have ", nbOfSummits, " children(s)")
     addChildrenToTree(summit, nbOfSummits, node_name)
     return summit
 
@@ -34,12 +38,10 @@ def addChildrenToTree(summit, childrenToAdd, node_name):
         else:
             childrenToAddNow = randint(1, 4)
         for i in range(childrenToAddNow):
-            #print(childrenToAddNow)
             summit.addChildren(WeightedTree(chr(node_name), randint(-5, 5), summit))
             node_name += 1
         childrenToAdd -= childrenToAddNow
         # childrenToAdd = reste pour le prochain appel
-
         liste = distribution(childrenToAddNow, childrenToAdd)
         i = 0
         for child_i in range(childrenToAddNow):
@@ -57,7 +59,5 @@ def distribution(nbSummits, childrenToAdd):
         res = randint(0, childrenToAdd-rest)
         liste.append(res)
         rest += res
-
     liste[-1] += (childrenToAdd-sum(liste))
-
     return liste

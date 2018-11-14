@@ -24,32 +24,33 @@ class Queue:
 
 
 def print_tree(tree):
-	"""
-	tree: WeightedTree object
-	We use the breadth first algorithm to print out te children.
-	The function wil print out the tree in form of lists of successors.
-	Where the successors are the children of a node. Here we the
-	successors will only be children one level lower than the parent
-	"""
-	if tree.getAllChildren() == []:
-		print("r : []")
-		print("Pas de sous arbre maximal pour cet arbre!")
-	else:
-		q = Queue()
-		q.enqueue(tree)
-		while not q.isEmpty():
-			s = q.dequeue()
-			children = s.getAllChildren()
-			if (not children) or (len(children) == 1 and None in children):
-				string = s.getRootVal() + "(" + str(s.getWeight()) + ") : [ ]"
-				print(string)
-			else:
-				string = s.getRootVal() + "(" + str(s.getWeight()) + ") : ["
-				for child_i in children:
-					if child_i != None: # Cette condition est ajouté pour faire le
-					# print après le maximiser
-						string += child_i.getRootVal() + "(" + str(child_i.getWeight()) + "); "
-						q.enqueue(child_i)
-				string = string[0: -2] # on enlève la virgule en trop
-				string += "]"
-				print(string)
+    """
+    tree: WeightedTree object
+    We use the breadth first algorithm to print out te children.
+    The function wil print out the tree in form of lists of successors.
+    Where the successors are the children of a node. Here we the
+    successors will only be children one level lower than the parent
+    """
+    if tree.getAllChildren() == []:
+        print("r\t: []")
+        print("Pas de sous arbre maximal pour cet arbre!")
+    else:
+        q = Queue()
+        q.enqueue(tree)
+        while not q.isEmpty():
+            s = q.dequeue()
+            children = s.getAllChildren()
+            if (not children) or (len(children) == 1 and None in children):
+                string = s.getRootVal() + "(" + str(s.getWeight()) + ")\t:\t[ ]"
+                print(string)
+            else:
+                string = s.getRootVal() + "(" + str(s.getWeight()) + ")\t:\t["
+                for child_i in children:
+                    if child_i != None: # Cette condition est ajouté pour faire le
+                        # print après le maximiser
+                        string += child_i.getRootVal() + "(" + str(child_i.getWeight()) + "); "
+                        q.enqueue(child_i)
+                if len(string) > 8: # si la boucle a été exécuté
+                    string = string[0: -2] # on enlève la virgule en trop
+                string += "]"
+                print(string)

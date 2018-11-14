@@ -1,39 +1,31 @@
 """
+Date: 12.11.18
+Authors:
 Mangriotis Aris	: 	000460001
 Simon Raphael 	: 	000462263
+
+Projet: Algorithmique
 """
 
-
-from WeightedTree import *
-from depthfirst import *
-from random import randint
+#from WeightedTree import *
+from max_subtree import *
 from treeGeneration import *
 from print_tree import *
+from main_hypertree import *
+from random import randint
 
 
 def main():
-
-    myTree = treeGeneration()
-    myTree2 = treeGeneration()
-    print("Weight of root: ", myTree.getWeight())
-    print("Number of children root has: ", myTree.getNbChildren())
-    print("On commence le parcours de l'arbre")
+    random_Tree = treeGeneration()
+    print("\n---------------Arbre avant la maximisation------------\n")
+    print_tree(random_Tree)
     print()
-    print("------------Arbre de Base------------")
-
-
-    # first print_tree
-    print_tree(myTree)
-
-	# MAXIMISATION DE L'ARBRE
-    max_subtree(myTree)
-
-    print("\n\n------------Arbre de Après maximisation------------")
-
-	# second print_tree after maximisation
-    print_tree(myTree)
-
+    max_subtree(random_Tree)
+    print("\n---------------Arbre de Après maximisation------------\n")
+    print_tree(random_Tree)
+    print()
 
 
 if __name__ == "__main__":
     main()
+    main_hypertree()
