@@ -1,6 +1,8 @@
 """
 Date: 12.11.18
-Authors: Aris Mangriotis, Raphael Simon
+Authors:
+Mangriotis Aris	: 	000460001
+Simon Raphael 	: 	000462263
 
 Projet: Algorithmique
 

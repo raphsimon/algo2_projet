@@ -4,15 +4,13 @@ Authors:
 Mangriotis Aris	: 	000460001
 Simon Raphael 	: 	000462263
 
-Projet: Algorithmique
+Projet: Algorithmique INFO-F203
 """
 
-#from WeightedTree import *
-from max_subtree import *
 from treeGeneration import *
+from max_subtree import *
 from print_tree import *
 from main_hypertree import *
-from random import randint
 
 
 def main():

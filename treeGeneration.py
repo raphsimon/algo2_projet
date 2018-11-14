@@ -15,7 +15,7 @@ from random import randint
 def treeGeneration():
     """
     Cette fonction génère un arbre parmi les règles suivantes:
-    - le nombre de sommets est max. 15
+    - le nombre de sommets est max. 15 (min.7)
     - un sommet peut être de degré 0 à 4
     - chaque sommet aura un poids n: -5 <= n <= 5
     - Il y a une chance de 25% que le sommet reste de degré 0

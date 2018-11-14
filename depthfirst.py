@@ -1,9 +1,11 @@
 """
+Date: 12.11.18
+Authors:
 Mangriotis Aris	: 	000460001
 Simon Raphael 	: 	000462263
-"""
 
-"""
+Projet: Algorithmique
+
 Ceci est l'implémentation de l'algorithme de parcours de graphe
 en profondeur.
 On utilise cet algorithme parce que l'arbre que nous avons est

@@ -1,6 +1,8 @@
 """
 Date: 12.11.18
-Authors: Aris Mangriotis, Raphael Simon
+Authors:
+Mangriotis Aris	: 	000460001
+Simon Raphael 	: 	000462263
 
 Projet: Algorithmique
 
@@ -74,12 +76,12 @@ class BipartiteGraph:
         #return BipartiteGraph(self.Hyp_edges, self.summits, [tuple(reversed(x) for x in self.conexions], self.alone_Hyp_edges, self.alone_Summits)
 
     def draw(self):
-        # Rperésntation en graphe biparti
+        # Représentation en graphe biparti
         X = self.summits
         Y = self.Hyp_edges
         pos = dict()
         pos.update( (j, (1, i)) for i, j in enumerate(X) ) # position
         pos.update( (j, (2, i)) for i, j in enumerate(Y) )
-        plt.figure("Dual Graph")
+        plt.figure("Dual HyperGraph")
         nx.draw(self.B, node_color = self.colors, pos=pos, with_labels = True)
         plt.show()

@@ -62,7 +62,7 @@ class WeightedTree:
         self.childrenList.append(newChild)
         self.nbChildren += 1
 
-    def deleteChild(self, child): # A continuer
+    def deleteChild(self, child):
         self.childrenList[self.childrenList.index(child)] = None
         self.nbChildren -= 1
 

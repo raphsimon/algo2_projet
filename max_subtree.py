@@ -1,8 +1,8 @@
 """
 Date: 12.11.18
-Authors: Aris Mangriotis, Raphael Simon
-
-Matricules: 000460001, 000462263
+Authors:
+Mangriotis Aris	: 	000460001
+Simon Raphael 	: 	000462263
 
 Projet: Algorithmique
 
@@ -20,6 +20,7 @@ def max_subtree(summit):
         nextNode = summit.getChildren(child_i)
         #summit.setChildren(max_subtree(nextNode), child_i)
         max_subtree(nextNode)
+
     if summit.getRootVal() != "r":
         if summit.getNbChildren() == 0:     # Si le sommet rencontré est une feuille
             if summit.getWeight() <= 0:     # Si la feuille est de poids négatif ou égale 0
@@ -33,7 +34,7 @@ def max_subtree(summit):
             """Noeud interne -> Nous somme maintenant sûrs que les enfants ont un poids positif
             Les feuilles à poids négatif ont été supprimées juste avant"""
 
-            if summit.getPotential() > 0 : #and summit.getRootVal() != "r":
+            if summit.getPotential() > 0:
                 """On verifie si les poids des enfants ont suffit pour que tout
                 le sous arbre ait un poids positif, sinon on supprime tout le sous arbre"""
                 summit.getFather().setPotential(summit.getPotential())
@@ -41,9 +42,8 @@ def max_subtree(summit):
                 # Suppression du noeud interne
                 print("Suppression du noeud (et son sous-arbre) : ", summit.getRootVal())
                 summit.getFather().deleteChild(summit)
-    else:
+    else:                                             # Le sommet rencontré est la racine
         if summit.getNbChildren() == 0:
-            print("Il n'existe pas de sous-arbre de poids maximum !!!!!!!")
             summit.deleteAllChildren()
             return [] # Retourner l'ensemble vide si pas de sous arbre maximum
     return summit

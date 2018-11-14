@@ -1,6 +1,9 @@
 """
 Mangriotis Aris	: 	000460001
 Simon Raphael 	: 	000462263
+
+
+A Tree represenation in the terminal instead of Networkx
 """
 
 class Queue:
@@ -46,11 +49,11 @@ def print_tree(tree):
             else:
                 string = s.getRootVal() + "(" + str(s.getWeight()) + ")\t:\t["
                 for child_i in children:
-                    if child_i != None: # Cette condition est ajouté pour faire le
-                        # print après le maximiser
+                    if child_i != None: # Cette condition est ajoutée pour faire le
+                        # print après la maximisation
                         string += child_i.getRootVal() + "(" + str(child_i.getWeight()) + "); "
                         q.enqueue(child_i)
-                if len(string) > 8: # si la boucle a été exécuté
+                if len(string) > 8: # si la boucle a été exécutée
                     string = string[0: -2] # on enlève la virgule en trop
                 string += "]"
                 print(string)
