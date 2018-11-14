@@ -2,6 +2,8 @@
 Date: 12.11.18
 Authors: Aris Mangriotis, Raphael Simon
 
+Matricules: 000460001, 000462263
+
 Projet: Algorithmique
 
 Ceci est l'implémentation de l'algorithme de parcours de graphe
